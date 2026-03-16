@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pessoas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .btn-add {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .btn-add:hover {
+            background-color: #218838;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .btn-action {
+            padding: 5px 10px;
+            margin: 0 5px;
+            text-decoration: none;
+            border-radius: 3px;
+            color: white;
+            font-size: 14px;
+        }
+        .btn-edit {
+            background-color: #ffc107;
+            color: #333;
+        }
+        .btn-edit:hover {
+            background-color: #e0a800;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+        .empty-message {
+            text-align: center;
+            color: #666;
+            padding: 30px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Pessoas</h1>
+        
+        <a href="/pessoas/novo" class="btn-add">+ Nova Pessoa</a>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuário</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pessoa : ${pessoas}">
+                    <td th:text="${pessoa.id}"></td>
+                    <td th:text="${pessoa.usuario}"></td>
+                    <td th:text="${pessoa.telefone}"></td>
+                    <td>
+                        <a th:href="@{/pessoas/editar/{id}(id=${pessoa.id})}" 
+                           class="btn-action btn-edit">Editar</a>
+                        <a th:href="@{/pessoas/deletar/{id}(id=${pessoa.id})}" 
+                           class="btn-action btn-delete" 
+                           onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                    </td>
+                </tr>
+                <tr th:if="${pessoas.empty}">
+                    <td colspan="4" class="empty-message">Nenhuma pessoa cadastrada</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
