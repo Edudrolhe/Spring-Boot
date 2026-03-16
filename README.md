@@ -1,28 +1,76 @@
 # Spring Boot Demo
 
-Projeto de exemplo com Spring Boot.
+Projeto de exemplo utilizando Spring Boot para gerenciamento de pessoas, com interface web simples.
 
-## Imagens
+## Funcionalidades
 
-![Imagem 1](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/01.png)
+- Cadastro de pessoas
+- Listagem de pessoas cadastradas
+- Interface web intuitiva
 
-![Imagem 2](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/02.png)
+## Imagens do Projeto
 
-![Imagem 3](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/03.png)
+### Tela Inicial
+![Tela Inicial](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/01.png)
 
-![Imagem 4](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/04.png)
+### Formulário de Cadastro
+![Formulário](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/02.png)
 
-![Imagem 5](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/05.png)
+### Lista de Pessoas
+![Lista](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/03.png)
+
+### Detalhes
+![Detalhes](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/04.png)
+
+### Interface
+![Interface](https://raw.githubusercontent.com/Edudrolhe/Spring-Boot/main/docs/images/05.png)
 
 ## Como executar
 
+1. Clone o repositório:
+```bash
+git clone https://github.com/Edudrolhe/Spring-Boot.git
+```
+
+2. Entre na pasta do projeto:
+```bash
+cd Spring-Boot
+```
+
+3. Execute o projeto:
 ```bash
 ./mvnw spring-boot:run
 ```
 
-## Tecnologias
+4. Acesse no navegador:
+```
+http://localhost:8080
+```
 
-- Java
-- Spring Boot
-- Thymeleaf
-- H2 Database
+## Tecnologias Utilizadas
+
+- **Java** - Linguagem de programação
+- **Spring Boot** - Framework para desenvolvimento de aplicações Java
+- **Thymeleaf** - Template engine para渲染 páginas HTML
+- **H2 Database** - Banco de dados em memória
+- **Maven** - Gerenciador de dependências
+
+## Estrutura do Projeto
+
+```
+src/
+├── main/
+│   ├── java/com/example/demo/
+│   │   ├── controller/    # Controladores REST
+│   │   ├── model/         # Modelos de dados
+│   │   └── repository/    # Repositórios
+│   └── resources/
+│       ├── templates/     # Arquivos HTML
+│       ├── schema.sql     # Estrutura do banco
+│       └── data.sql       # Dados iniciais
+└── test/                  # Testes
+```
+
+## Autor
+
+Eduardo Drolhe
